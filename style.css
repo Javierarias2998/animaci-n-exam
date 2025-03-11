@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: purple;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Estilos de las figuras */
+.square, .circle, .ok-symbol {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    animation: zigzag 4s infinite linear, colorChange 4s infinite alternate;
+}
+
+/* Cuadrado */
+.square {
+    background-color: red;
+    top: 30%;
+    left: 10%;
+}
+
+/* Círculo */
+.circle {
+    background-color: blue;
+    border-radius: 50%;
+    top: 50%;
+    left: 10%;
+    animation: zigzagAlt 4s infinite linear, colorChange 4s infinite alternate;
+}
+
+/* Símbolo OK */
+.ok-symbol {
+    font-size: 40px;
+    color: white;
+    top: 70%;
+    animation: moveUpDown 2s infinite alternate;
+}
+
+/* Texto */
+.text {
+    position: absolute;
+    top: 10%;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    animation: colorChange 4s infinite alternate;
+}
+
+/* Zig-Zag para el cuadrado */
+@keyframes zigzag {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(100px, 50px) scale(1.2); }
+    40% { transform: translate(200px, -50px) scale(0.8); }
+    60% { transform: translate(300px, 50px) scale(1.3); }
+    80% { transform: translate(400px, -50px) scale(1); }
+    100% { transform: translate(500px, 0) scale(1); }
+}
+
+/* Zig-Zag para el círculo */
+@keyframes zigzagAlt {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(100px, -50px) scale(1.2); }
+    40% { transform: translate(200px, 50px) scale(0.8); }
+    60% { transform: translate(300px, -50px) scale(1.3); }
+    80% { transform: translate(400px, 50px) scale(1); }
+    100% { transform: translate(500px, 0) scale(1); }
+}
+
+/* Movimiento de sube y baja del símbolo OK */
+@keyframes moveUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+/* Cambio de colores sincronizado */
+@keyframes colorChange {
+    0%, 100% { color: white; background-color: red; }
+    25% { color: yellow; background-color: blue; }
+    50% { color: cyan; background-color: green; }
+    75% { color: pink; background-color: yellow; }
+}
